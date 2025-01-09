@@ -18,7 +18,7 @@ import toastError from "../assets/images/toastError.jpg";
 import { RiUpload2Fill } from "react-icons/ri";
 import { FaHeartCirclePlus } from "react-icons/fa6";
 import { FaHeartCircleMinus } from "react-icons/fa6";
-import SingleProductSkeleton from "../components/layouts/SingleProduct/SIngleProductSkeleton";
+import SingleProductSkeleton from "../components/layouts/SingleProduct/SingleProductSkeleton";
 import ProductDescSkeleton from "../components/layouts/SingleProduct/ProductDescSkeleton";
 import SimilarProductCarousel from "../components/layouts/SingleProduct/SimilarProductCarousel";
 import BASE_URL from "../../config";

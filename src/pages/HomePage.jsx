@@ -11,7 +11,7 @@ import HeroBannerCarousel from "../components/layouts/Homepage/HeroBannerCarouse
 import IffcoBanner from "../components/layouts/Homepage/IffcoBanner";
 import ImplementsProductsSlider from "../components/layouts/Homepage/ImplementsProductsSlider";
 import RentSellSection from "../components/layouts/Homepage/RentSellSection";
-import TractorProductSLider from "../components/layouts/Homepage/TractorProductSLider";
+import TractorProductSlider from "../components/layouts/Homepage/TractorProductSlider";
 import TyreProductsSlider from "../components/layouts/Homepage/TyreProductsSlider";
 import VideoSection from "../components/layouts/Homepage/VideoSection";
 import WeatherSection from "../components/layouts/Homepage/WeatherSection";
@@ -24,7 +24,7 @@ const HomePage = () => {
       <section className="hero-section w-full">
         <HeroBannerCarousel />
         <CategorySection />
-        <TractorProductSLider />
+        <TractorProductSlider />
         <VideoSection />
         <GoodVehiclesProductSlider />
         <RentSellSection />
