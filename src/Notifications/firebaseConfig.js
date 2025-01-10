@@ -8,6 +8,7 @@ import { getMessaging, getToken } from "firebase/messaging";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+
 const firebaseConfig = {
   apiKey: "AIzaSyCvzoObdbPINM_-8CJylQfZzQAw60I3v1U",
   authDomain: "notification-test-6e6cb.firebaseapp.com",

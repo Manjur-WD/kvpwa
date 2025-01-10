@@ -6,7 +6,7 @@ import SplashScreen from "./components/elements/SplashScreen";
 import { FilterButtonStateProvider } from "./context/CategoryWiseAllProduct/FilterBtnContext";
 import { CompanyDataProvider } from "./context/CompanyData/CompanyDataContext";
 import { SortStatusProvider } from "./context/SortingProductContext/SortProductContext";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setLogInState, setToken } from "./redux/features/Auth/AuthSlice";
 import MobileScreenNav from "./components/layouts/Header/MobileScreenNav";
 import { Toaster } from "react-hot-toast";
@@ -44,8 +44,12 @@ const LazyComponents = {
 const App = () => {
   const baseUrl = "";
   const guestToken = "31575|yuo3bhA54txVyABiLOouqD5Qa5cMSrXU9VW9ahPu54782d62";
+  // const guestToken = "1322|bVj5PIv6D4gJA8wEyMf5buNvqzAWfkmIhi9rPKCj63b4d4e8";
   const location = useLocation();
   const dispatch = useDispatch();
+
+  const authState = useSelector((state) => state.auth);
+  console.log(authState)
 
   const secretKey = "kv-auth-token";
 
