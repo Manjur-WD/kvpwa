@@ -13,7 +13,7 @@ export default defineConfig({
       },
       manifest: {
         name: 'Krishi Vikas Udyog',
-        short_name: 'KVU',
+        short_name: 'Krishi Vikas Udyog',
         description: 'A digital marketplace for farmers and buyers',
         theme_color: '#ffffff',
         background_color: '#ffffff',
