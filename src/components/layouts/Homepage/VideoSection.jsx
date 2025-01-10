@@ -4,7 +4,7 @@ const VideoSection = () => {
   return (
     <>
       <section className="video-section">
-      <video src={videoKv} muted autoPlay loop className=""></video>
+      <video src={videoKv} playsInline muted autoPlay loop className=""></video>
       </section>
     </>
   )
