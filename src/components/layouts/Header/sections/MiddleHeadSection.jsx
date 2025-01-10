@@ -110,7 +110,7 @@ const MiddleHeadSection = () => {
             >
               <CgMenuLeft className="text-2xl text-slate-200" />
             </button>
-            <Link to="/krishi-vikas-udyog/">
+            <Link to="/">
               <img
                 src={logo}
                 alt="this is brand logo"
