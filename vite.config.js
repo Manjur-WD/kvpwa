@@ -12,7 +12,7 @@ export default defineConfig({
         enabled: true,
       },
       workbox: {
-        maximumFileSizeToCacheInBytes: 4 * 1024 * 1024, // Increase to 4 MiB
+        maximumFileSizeToCacheInBytes: 10 * 1024 * 1024, // Increase to 4 MiB
       },
       manifest: {
         name: 'Krishi Vikas Udyog',
