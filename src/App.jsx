@@ -20,6 +20,8 @@ import CropContents from "./pages/crop-calender/CropContents";
 import AboutUs from "./pages/AboutUs";
 import BASE_URL from "../config";
 import ContactUs from "./pages/ContactUs";
+import { generateToken, messaging } from "./Notifications/firebaseConfig";
+import { onMessage } from "firebase/messaging";
 
 // Lazy load components
 const LazyComponents = {
@@ -46,6 +48,13 @@ const App = () => {
   const dispatch = useDispatch();
 
   const secretKey = "kv-auth-token";
+
+  useEffect(() => {
+    generateToken();
+    onMessage(messaging, (payload) => {
+      console.log("Message received. ", payload);
+    })
+  }, [])
 
   // Handle token & login state initialization
   useEffect(() => {
