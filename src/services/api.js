@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const baseURL = "https://krishivikas.com/api/v2";
-// const baseURL = "https://database.businessenquiry.co.in/api/v3";
+// const baseURL = "https://krishivikas.com/api/v2";
+const baseURL = "https://database.businessenquiry.co.in/api/v3";
 
 // Base API configuration
 
@@ -154,7 +154,7 @@ export const getCategoryWiseAllProduct = async (
 ) => {
   try {
     const response = await axios.post(
-      `${baseURL}/category-view-all-data`,
+      `${baseURL}/category-filter`,
       {
         category_id: category_id,
         type: type,

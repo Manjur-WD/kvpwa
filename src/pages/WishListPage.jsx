@@ -30,21 +30,21 @@ const WishListPage = () => {
 
     const getCategory = (id) => {
         switch (id) {
-            case "1":
+            case 1:
                 return "tractor";
-            case "3":
+            case 3:
                 return "goods-vehicle"
-            case "4":
+            case 4:
                 return "harvester"
             case 5:
                 return "implements"
-            case "7":
+            case 7:
                 return "tyre"
-            case "6":
+            case 6:
                 return "agri-inputs"
-            case "8":
+            case 8:
                 return "agri-inputs"
-            case "9":
+            case 9:
                 return "agri-inputs"
         }
     }
@@ -52,11 +52,11 @@ const WishListPage = () => {
 
     const getType = (id) => {
         switch (id) {
-            case "6":
+            case 6:
                 return "seeds"
-            case "8":
+            case 8:
                 return "pesticides"
-            case "9":
+            case 9:
                 return "fertilizer"
         }
     }
@@ -143,7 +143,7 @@ const WishListPage = () => {
                                 <div className="wishlist-card-wrapper m-2 p-1 rounded-2xl shadow border" key={item.id}>
                                     <div className="wishlist-card grid grid-cols-[120px,1fr] md:grid-cols-1 gap-3">
                                         {
-                                            item?.category_id === "6" || item?.category_id === "7" || item?.category_id === "8" || item?.category_id === "9" ?
+                                            item?.category_id === 6 || item?.category_id === 7 || item?.category_id === 8 || item?.category_id === 9 ?
                                                 <img src={item?.image1} alt="this is wishlist product image" className="w-full aspect-square object-cover object-center rounded-2xl" /> :
                                                 <img src={item?.front_image} alt="this is wishlist product image" className="w-full aspect-square object-cover object-center rounded-2xl" />
 
@@ -167,7 +167,7 @@ const WishListPage = () => {
                                                     <MdOutlineCurrencyRupee className="inline-block mb-1 " />
                                                     {item.price}
                                                     {
-                                                        item?.category_id === "6" || item?.category_id === "7" || item?.category_id === "8" || item?.category_id === "9" ?
+                                                        item?.category_id === 6 || item?.category_id === 7 || item?.category_id === 8 || item?.category_id === 9 ?
                                                             "" :
                                                             ` ${item.rent_type === null || undefined ? "" : `/ ${item.rent_type?.slice(4)}`}`
                                                     }
@@ -175,7 +175,7 @@ const WishListPage = () => {
                                             </div>
                                             <div className="wishlist-action flex justify-center gap-3 px-5 mt-2">
                                                 <Link
-                                                    to={`${BASE_URL}/${getCategory(item?.category_id)}/${["6", "8", "9"].includes(item.category_id) ? getType(item?.category_id) : item.type}/${item.id}`}
+                                                    to={`${BASE_URL}/${getCategory(item?.category_id)}/${[6, 8, 9].includes(item.category_id) ? getType(item?.category_id) : item.type_new_or_old}/${item.id}`}
                                                     type="button"
                                                     className="bg-lightdark text-white text-sm px-2 py-1 rounded-3xl shadow active:scale-95"
                                                 >

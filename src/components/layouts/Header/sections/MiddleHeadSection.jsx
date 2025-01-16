@@ -54,7 +54,7 @@ const MiddleHeadSection = () => {
     localStorage.removeItem("KV_SESSION");
     localStorage.removeItem("isLoggedIn");
     dispatch(setLogInState(false));
-    dispatch(setToken("31575|yuo3bhA54txVyABiLOouqD5Qa5cMSrXU9VW9ahPu54782d62"));
+    dispatch(setToken("31695|WQ4XiGAulHmYnH1rcGmXopR3mWpNBytWfWLbl1fu2e1c55ea"));
     // dispatch(setToken("1322|bVj5PIv6D4gJA8wEyMf5buNvqzAWfkmIhi9rPKCj63b4d4e8"));
     navigate(`${BASE_URL}/`);
     setTimeout(() => {

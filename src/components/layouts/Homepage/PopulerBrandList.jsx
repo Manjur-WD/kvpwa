@@ -64,7 +64,7 @@ const PopulerBrandList = ({ populer_brand_id, company_id, tab }) => {
               dispatch(addPopulerBrand(brand.id));
               setCompanyLogo(brand.logo)
               // console.log(companyLogo);
-              brand.category === "6" || brand.category === "8" || brand.category === "9" ?
+              brand.category === 6 || brand.category === 8 || brand.category === 9 ?
                 navigate(
 
                   `${BASE_URL}/company/${brand.id}`

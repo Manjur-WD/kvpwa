@@ -28,7 +28,7 @@ export const menuItems = [
         link: `${BASE_URL}/tractor/rent`,
       },
     ],
-    image: "http://localhost:5173/krishi-vikas-udyog/src/assets/images/trac-drop.jpg"
+    image: "http://localhost:5173/src/assets/images/trac-drop.jpg"
   },
   {
     id: "m3",
@@ -51,7 +51,7 @@ export const menuItems = [
         link: `${BASE_URL}/goods-vehicle/rent`,
       },
     ],
-    image: "http://localhost:5173/krishi-vikas-udyog/src/assets/images/gv-drop.webp"
+    image: "http://localhost:5173/src/assets/images/gv-drop.webp"
   },
   {
     id: "m4",
@@ -74,7 +74,7 @@ export const menuItems = [
         link: `${BASE_URL}/agri-inputs/fertilizer`,
       },
     ],
-    image: "http://localhost:5173/krishi-vikas-udyog/src/assets/images/agri-inputs-drop.png"
+    image: "http://localhost:5173/src/assets/images/agri-inputs-drop.png"
   },
   {
     id: "m5",
@@ -97,7 +97,7 @@ export const menuItems = [
         link: `${BASE_URL}/harvester/rent`,
       },
     ],
-    image: "http://localhost:5173/krishi-vikas-udyog/src/assets/images/harvest-drop.webp"
+    image: "http://localhost:5173/src/assets/images/harvest-drop.webp"
   },
   {
     id: "m6",
@@ -120,7 +120,7 @@ export const menuItems = [
         link: `${BASE_URL}/implements/rent`,
       },
     ],
-    image: "http://localhost:5173/krishi-vikas-udyog/src/assets/images/implement-drop.jpg"
+    image: "http://localhost:5173/src/assets/images/implement-drop.jpg"
   },
   {
     id: "m7",
@@ -138,6 +138,6 @@ export const menuItems = [
         link: `${BASE_URL}/tyre/old`,
       },
     ],
-    image: "http://localhost:5173/krishi-vikas-udyog/src/assets/images/tyres-drop.jpg"
+    image: "http://localhost:5173/src/assets/images/tyres-drop.jpg"
   },
 ];
