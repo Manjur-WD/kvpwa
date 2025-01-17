@@ -66,13 +66,9 @@ const PopulerBrandList = ({ populer_brand_id, company_id, tab }) => {
               // console.log(companyLogo);
               brand.category === 6 || brand.category === 8 || brand.category === 9 ?
                 navigate(
-
                   `${BASE_URL}/company/${brand.id}`
-
                 ) :
                 navigate(
-
-
                   `${BASE_URL}/${getCategoryName(brand.category_id)}/${tab}`
                 )
                 ;
@@ -84,7 +80,7 @@ const PopulerBrandList = ({ populer_brand_id, company_id, tab }) => {
               alt="populer-brand-logo"
               className="w-[50px] h-[50px] object-contain"
             />
-            <p className="brand-title text-[12px] uppercase">{brand.name}</p>
+            <p className="brand-title text-[12px] uppercase truncate">{brand.name}</p>
           </div>
         ))}
       </div>

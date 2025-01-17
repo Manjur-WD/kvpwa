@@ -4,26 +4,51 @@ import { GiPathDistance } from "react-icons/gi";
 import { RiHeart2Fill } from "react-icons/ri";
 import { RiHeart2Line } from "react-icons/ri";
 import watermark from "../../assets/images/water-mark.png";
+import MarkSold from "../../../public/images/sold-png.png"
+import { AiFillThunderbolt } from "react-icons/ai";
 
 const ProductCard = ({
   product_image,
   product_title,
   product_pricing,
   product_location,
+  city,
   distance_product,
   rent_type,
-  product_full_details
+  product_full_details,
+  mark_as_sold,
+  is_boosted
 }) => {
 
   const storeProductToSession = (item) => {
     sessionStorage.setItem("single-product-detail", JSON.stringify(item))
   }
 
+  console.log(mark_as_sold);
+  console.log(is_boosted);
+
+
   return (
     <>
       <div className="product-card bg-white rounded-3xl overflow-hidden my-2 shadow-lg border hover:scale-95 transition-all"
         onMouseEnter={() => storeProductToSession(product_full_details)}>
         <div className="product_image p-[2px] relative">
+          {
+            mark_as_sold === "4" ? <img src={MarkSold} alt="mark-as-sold" className="w-[80%] absolute z-5 top-2 left-1/2 -translate-x-1/2" /> : null
+          }
+
+          {
+            is_boosted  ?
+
+              <div className="absolute top-3 left-3">
+                <div className="boost-badge bg-white  text-black border border-slate-200 text-sm inline-block py-1 px-2 rounded-2xl relative shadow-lg">
+                  <AiFillThunderbolt className="text-white inline bg-gradient-green w-10 h-10 p-2 animate-pulse absolute rounded-full -left-1 -top-[5px] shadow shadow-lightgreen" /> <span className="ps-9 pe-2 font-semibold italic">Boosted</span>
+                </div>
+              </div>
+
+              : null
+          }
+
 
           <img
             src={product_image}
@@ -38,13 +63,13 @@ const ProductCard = ({
         </div>
         <p className="text-center py-4 product-title px-4">{product_title}</p>
         <div className="flex text-sm justify-between items-center px-5 py-3 location-and-price md:h-auto h-[55px]">
-          <p className="distance">
+          <p className="distance truncate w-1/2 text-start">
             <GrMapLocation className="inline-block mb-2 me-1" />
-            {product_location}
+            {city}
           </p>
           <p className="pricing">
             <MdOutlineCurrencyRupee className="inline-block mb-1 " />
-            {product_pricing}
+            {Math.ceil(product_pricing)}
             {rent_type !== null ? rent_type : ""}
           </p>
         </div>

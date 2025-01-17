@@ -24,7 +24,22 @@ const CategoryWiseProductCarousel = ({
   view_all_category
 }) => {
 
-  const {t} = useTranslation();
+  const getCategoryId = (cat_name) => {
+    switch (cat_name) {
+      case "tractor":
+        return 1
+      case "Goods Vehicle":
+        return 3
+      case "harvester":
+        return 4
+      case "implements":
+        return 5
+      case "tyres":
+        return 7
+    }
+  }
+
+  const { t } = useTranslation();
   return (
     <>
       <section className="category-wise-product-slider relative md:my-10 my-2">
@@ -32,7 +47,7 @@ const CategoryWiseProductCarousel = ({
           <h3 className="md:text-2xl  text-lg md:w-[350px] w-1/2 md:p-4 p-2 font-semibold text-white md:font-bold shadow-lg text-center uppercase">
             {t(category_title)}
           </h3>
-          
+
         </div>
 
         <div className="category__tabs  w-[95%] rounded-xl mx-auto">
@@ -52,7 +67,7 @@ const CategoryWiseProductCarousel = ({
                     {tab === "old" ? t('used') : t(tab)}
                   </TabsTrigger>
                 ))}
-                
+
               </TabsList>
 
               {/* Dynamically render TabsContent based on the selected tab */}
@@ -62,19 +77,31 @@ const CategoryWiseProductCarousel = ({
                     value={tab === "old" ? "used" : tab}
                     className="animate__animated animate__fadeIn"
                   >
-                    
-            <Link
-              to={`${BASE_URL}/${view_all_category}/${tab}`}
-              className="inline-block absolute md:top-4 top-2 right-5 uppercase border-lightgreen bg-white md:me-10 me-2 px-4 py-1 rounded-3xl md:font-semibold shadow text-darkGreen border md:text-md text-xs"
-            >
-              {t('View All')} <TbArrowMoveRight className="inline mb-1" />
-            </Link>
-          
+
+                    <Link
+                      to={`${BASE_URL}/${view_all_category}/${tab}`}
+                      className="inline-block absolute md:top-4 top-2 right-5 uppercase border-lightgreen bg-white md:me-10 me-2 px-4 py-1 rounded-3xl md:font-semibold shadow text-darkGreen border md:text-md text-xs"
+                    >
+                      {t('View All')} <TbArrowMoveRight className="inline mb-1" />
+                    </Link>
+
                     {/* POPULER BRAND RENDERING CODE START */}
 
-                    {tab === "new" ? null : (
-                      <PopulerBrandList populer_brand_id={populer_brand_id} tab={tab} />
-                    )}
+                    {
+                      category_title !== "agri inputs" ?
+                        (
+                          tab === "new" ? (
+                            <PopulerBrandList company_id={getCategoryId(category_title)} tab={tab} />
+                          )
+                            : <PopulerBrandList populer_brand_id={getCategoryId(category_title)} tab={tab} />
+                        )
+                        :
+                        (null)
+
+
+
+
+                    }
 
                     {tab === "seeds" ? (
                       <PopulerBrandList company_id="6" tab={tab} />
@@ -101,17 +128,16 @@ const CategoryWiseProductCarousel = ({
                             >
                               {/* Example rendering each item, adjust based on your data */}
                               <Link
-                                to={`${BASE_URL}/${
-                                  category_title == "tyres"
-                                    ? "tyre"
-                                    : category_title == "Goods Vehicle"
+                                to={`${BASE_URL}/${category_title == "tyres"
+                                  ? "tyre"
+                                  : category_title == "Goods Vehicle"
                                     ? "goods-vehicle"
                                     : category_title == "agri inputs"
-                                    ? "agri-inputs"
-                                    : category_title
-                                }/${
-                                  tab == "fertilizers" ? "fertilizer" : tab
-                                }/${item.id}`}
+                                      ? "agri-inputs"
+                                      : category_title
+                                  }/${tab == "fertilizers" ? "fertilizer" : tab
+                                  }/${item.id}`}
+                                className={item?.status === "4" ? "pointer-events-none" : "cursor-pointer"}
                               >
                                 <ProductCard
                                   product_image={
@@ -122,12 +148,13 @@ const CategoryWiseProductCarousel = ({
                                   product_title={
                                     `${item.brand_name} ${item.model_name}` ===
                                       "Others Others" ||
-                                    `${item.brand_name} ${item.model_name}` ===
+                                      `${item.brand_name} ${item.model_name}` ===
                                       "undefined undefined"
                                       ? item.title
                                       : `${item.brand_name} ${item.model_name}`
                                   }
                                   product_location={item.district_name}
+                                  city={item?.city_name}
                                   product_pricing={item.price}
                                   distance_product={item.distance}
                                   rent_type={
@@ -138,6 +165,8 @@ const CategoryWiseProductCarousel = ({
                                       : ""
                                   }
                                   // product_full_details= {item}
+                                  is_boosted={item?.is_boosted}
+                                  mark_as_sold={item?.status}
                                 />
                               </Link>
                             </CarouselItem>

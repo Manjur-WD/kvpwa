@@ -227,6 +227,7 @@ const CategoryWiseAllProduct = () => {
                         <Link
                           key={item.id}
                           to={`${BASE_URL}/${category}/${type}/${item.id}`}
+                          className={item?.status === "4" ? "pointer-events-none" : "cursor-pointer"}
                         >
                           <ProductCard
                             product_full_details={item}
@@ -246,6 +247,7 @@ const CategoryWiseAllProduct = () => {
                             product_location={item.district_name}
                             product_pricing={item.price}
                             distance_product={item.distance}
+                            city={item?.city_name}
                             rent_type={
                               type === "rent"
                                 ? item.rent_type
@@ -253,6 +255,8 @@ const CategoryWiseAllProduct = () => {
                                   : ""
                                 : ""
                             }
+                            is_boosted={item?.is_boosted}
+                            mark_as_sold={item?.status}
                           />
                         </Link>
                       ))

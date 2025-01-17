@@ -153,7 +153,7 @@ const MiddleHeadSection = () => {
                     className=" hover:scale-95 md:px-4 py-1 relative md:block hidden cursor-pointer"
                     onClick={() => navigate(`${BASE_URL}/wishlist`)}
                   >
-                    <span className="wishlist--count bg-lightdark text-white px-2 rounded-full absolute left-8 text-sm top-0">
+                    <span className="wishlist--count bg-lightdark text-white px-[5px] rounded-full absolute left-9 text-[10px] top-1 aspect-square flex justify-center items-center">
                       {wishlistItems.wishlist?.length}
                     </span>
                     <PiHeartHalfLight className="me-2 inline align-bottom text-3xl text-lightgreen" />

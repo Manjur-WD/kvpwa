@@ -76,7 +76,6 @@ export const loadAllCategoryWiseData = async (token) => {
   try {
     const response = await axios.get(
       `${baseURL}/home`,
-
       {
         headers: {
           Authorization:
