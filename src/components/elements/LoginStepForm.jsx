@@ -159,10 +159,10 @@ const LoginStepForm = () => {
         setOtpInput(e);
     };
 
-    console.log("OTP SENT", isClicked);
-    console.log("OTP VALIDATE", isOtpValidated);
-    console.log(userDetails);
-    console.log(authState);
+    // console.log("OTP SENT", isClicked);
+    // console.log("OTP VALIDATE", isOtpValidated);
+    // console.log(userDetails);
+    // console.log(authState);
 
     return (
         <>

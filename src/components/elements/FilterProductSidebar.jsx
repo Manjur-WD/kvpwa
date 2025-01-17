@@ -224,8 +224,7 @@ const FilterProductSidebar = ({ categoryId, type, categoryProduct }) => {
                                 <div
                                   className="text-center"
                                   onClick={() => {
-                                    dispatch(addBrand(item.brand_id));
-                                    
+                                    dispatch(addBrand(item.brand_id));  
                                   }}
                                 >
                                   <img

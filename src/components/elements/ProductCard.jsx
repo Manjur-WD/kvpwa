@@ -24,8 +24,7 @@ const ProductCard = ({
     sessionStorage.setItem("single-product-detail", JSON.stringify(item))
   }
 
-  console.log(mark_as_sold);
-  console.log(is_boosted);
+
 
 
   return (

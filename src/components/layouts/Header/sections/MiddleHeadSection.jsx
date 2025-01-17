@@ -28,7 +28,7 @@ import {
 
 import LoginStepForm from "../../../elements/LoginStepForm";
 import { useDispatch, useSelector } from "react-redux";
-import { setLogInState, setToken, setUsers } from "../../../../redux/features/Auth/AuthSlice";
+import { setLogInState, setToken, setTriggerLogin, setUsers } from "../../../../redux/features/Auth/AuthSlice";
 import { useQuery } from "@tanstack/react-query";
 import { getProfileDetails, getWishList } from "../../../../services/api";
 import BASE_URL from "../../../../../config";
@@ -45,7 +45,9 @@ const MiddleHeadSection = () => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.token);
   const user = useSelector((state) => state.auth.user);
-  // console.log(user);
+  const triggerLogin = useSelector((state) => state.auth.triggerLogin);
+  console.log(triggerLogin);
+
 
 
   // const token = localStorage.getItem("token");
@@ -79,6 +81,14 @@ const MiddleHeadSection = () => {
     fetchWishList();
   }, [])
 
+  useEffect(() => {
+    const loginBtn = document.querySelector(".login-trigger");
+    if (triggerLogin) {
+      loginBtn.click();
+    }
+    dispatch(setTriggerLogin(false));
+  }, [triggerLogin])
+
 
   const isLoggedIn = localStorage.getItem("isLoggedIn");
 
@@ -92,12 +102,7 @@ const MiddleHeadSection = () => {
     // console.log(authState.user);
   }
 
-
-
-
   // console.log(profile);
-
-
 
   return (
     <>
@@ -163,28 +168,29 @@ const MiddleHeadSection = () => {
                 (<button
                   type="button"
                   className=" hover:scale-95 md:px-4 py-1 relative md:block hidden cursor-pointer"
-                  onClick={() => toast.error("You are not Logged in !!",
-                    {
-                      duration: 4000,
-                      style: {
-                        // border: '2px solid #9c0a0d',
-                        boxShadow: '0 0  25px #9c0a0d',
-                        padding: '16px',
-                        fontSize: '18px',
-                        color: 'white',
-                        // backgroundColor: '#d1e7dd',
-                        background: `url(${toastError}) no-repeat center/cover`,
-                        borderRadius: '8px',
-                      },
-                    }
-                  )}
+                  onClick={() => {
+                    toast.error("You are not Logged in !!",
+                      {
+                        duration: 4000,
+                        style: {
+                          // border: '2px solid #9c0a0d',
+                          boxShadow: '0 0  25px #9c0a0d',
+                          padding: '16px',
+                          fontSize: '18px',
+                          color: 'white',
+                          // backgroundColor: '#d1e7dd',
+                          background: `url(${toastError}) no-repeat center/cover`,
+                          borderRadius: '8px',
+                        },
+                      }
+                    );
+                    dispatch(setTriggerLogin(true));
+                  }}
                 >
                   <PiHeartHalfLight className="me-2 inline align-bottom text-3xl text-lightgreen" />
                   <span className="text-lg ms-2">{t('Wishlist')}</span>
                 </button>)
             }
-
-
 
 
             {
@@ -215,7 +221,7 @@ const MiddleHeadSection = () => {
                 ) :
                 (
                   <Dialog >
-                    <DialogTrigger className="border border-dashed border-transparent hover:border-gray-200 hover:scale-95 md:px-4 px-2 py-1">
+                    <DialogTrigger className="border border-dashed border-transparent hover:border-gray-200 hover:scale-95 md:px-4 px-2 py-1 login-trigger">
                       <PiUserCircleDashedFill className="me-1 inline align-bottom text-3xl text-lightgreen" />
                       <span className="md:text-lg inline-block md:pb-0 pb-1">{t('Login')}</span>
                     </DialogTrigger>
