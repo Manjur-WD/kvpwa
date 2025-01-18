@@ -37,7 +37,7 @@ const ProductCard = ({
           }
 
           {
-            is_boosted  ?
+            is_boosted ?
 
               <div className="absolute top-3 left-3">
                 <div className="boost-badge bg-white  text-black border border-slate-200 text-sm inline-block py-1 px-2 rounded-2xl relative shadow-lg">
@@ -64,7 +64,7 @@ const ProductCard = ({
         <div className="flex text-sm justify-between items-center px-5 py-3 location-and-price md:h-auto h-[55px]">
           <p className="distance truncate w-1/2 text-start">
             <GrMapLocation className="inline-block mb-2 me-1" />
-            {city}
+            {city ? city : product_location}
           </p>
           <p className="pricing">
             <MdOutlineCurrencyRupee className="inline-block mb-1 " />
