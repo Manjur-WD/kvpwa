@@ -8,9 +8,10 @@ import { useQuery } from "@tanstack/react-query";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import BASE_URL from "../../../../config";
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import toastError from "../../../assets/images/toastError.jpg";
+import { setTriggerLogin } from "../../../redux/features/Auth/AuthSlice";
 
 const MobileScreenNav = () => {
   const wislistItems = useSelector((state) => state.wishlistings.wishlist)
@@ -19,6 +20,8 @@ const MobileScreenNav = () => {
   const handleActiveNav = (num) => {
     setActiveNav(num);
   };
+
+  const dispatch = useDispatch();
 
   const authState = useSelector((state) => state.auth);
 
@@ -65,8 +68,10 @@ const MobileScreenNav = () => {
             )
             :
             (
-              <div className="mobile-nav__menus relative" onClick={() =>
-                notLoggedInMsg()
+              <div className="mobile-nav__menus relative" onClick={() => {
+                notLoggedInMsg();
+                dispatch(setTriggerLogin(true));
+              }
               }>
                 <Link to="#" className={activeNav === 2 ? "active" : ""}>
                   <RiHeart2Fill />
@@ -84,13 +89,16 @@ const MobileScreenNav = () => {
       <div className="right_nav_menus flex items-center gap-10">
         {
           authState?.isLoggedIn ?
-            (<div className="mobile-nav__menus relative" onClick={() => handleActiveNav(3)}>
+            (<div className="mobile-nav__menus relative pointer-events-none" onClick={() => handleActiveNav(3)}>
               <Link to={`${BASE_URL}/sell-product`} className={activeNav === 3 ? "active" : ""}>
                 <RiStickyNoteAddFill />
               </Link>
             </div>)
             :
-            (<div className="mobile-nav__menus relative" onClick={() => notLoggedInMsg()}>
+            (<div className="mobile-nav__menus relative pointer-events-none" onClick={() => {
+              notLoggedInMsg();
+              dispatch(setTriggerLogin(true));
+            }}>
               <Link to="#" className={(activeNav === 3 ? "active" : "")}>
                 <RiStickyNoteAddFill />
               </Link>
@@ -108,7 +116,10 @@ const MobileScreenNav = () => {
             )
             :
             (
-              <div className="mobile-nav__menus relative" onClick={() => notLoggedInMsg()}>
+              <div className="mobile-nav__menus relative" onClick={() => {
+                notLoggedInMsg();
+                dispatch(setTriggerLogin(true));
+              }}>
                 <Link to="#" className={activeNav === 4 ? "active" : ""}>
                   <TiUser />
                 </Link>

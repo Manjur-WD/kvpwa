@@ -28,6 +28,7 @@ import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { updateWishListItems } from "../redux/features/wishlist/WishlistSlice";
 import { useTranslation } from "react-i18next";
+import { setTriggerLogin } from "../redux/features/Auth/AuthSlice";
 
 
 
@@ -461,8 +462,11 @@ const SinglProductPage = () => {
                   !isLoggedIn ?
                     (<button
                       type="button"
-                      className={"bg-darkGreen mb-3 text-white py-1 px-3 rounded-2xl"}
-                      onClick={() => handleWishlist(singleProduct?.category_id, singleProduct?.id, token)}
+                      className={"bg-darkGreen mb-3 text-white py-1 px-3 rounded-2xl sm:text-lg text-sm"}
+                      onClick={() => {
+                        handleWishlist(singleProduct?.category_id, singleProduct?.id, token);
+                        dispatch(setTriggerLogin(true))
+                      }}
                       disabled={isLoading}
                     >
                       <FaHeartCirclePlus className="animate-pulse inline me-1 mb-1" />{t('Add to wishlist')}
@@ -470,7 +474,7 @@ const SinglProductPage = () => {
                     :
                     (<button
                       type="button"
-                      className={singleProduct?.wishlist_status === 1 ? "bg-red-600 mb-3 text-white py-1 px-3 rounded-2xl" : "bg-darkGreen mb-3 text-white py-1 px-3 rounded-2xl"}
+                      className={singleProduct?.wishlist_status === 1 ? "bg-red-600 mb-3 text-white py-1 px-3 rounded-2xl sm:text-lg text-sm" : "bg-darkGreen mb-3 text-white py-1 px-3 rounded-2xl sm:text-lg text-sm"}
                       onClick={() => handleWishlist(singleProduct?.category_id, singleProduct?.id, token)}
                       disabled={isLoading}
                     >
@@ -607,7 +611,9 @@ const SinglProductPage = () => {
                           to="#"
                           className="text-lg bg-black text-white py-2 px-3 my-5 inline-block rounded-3xl border call-user shadow-xl hover:scale-95 animate-pulse"
                           onClick={(e) => {
-                            e.preventDefault(); toast.error("You are not logged in, Please login to continue",
+                            e.preventDefault(); 
+                            dispatch(setTriggerLogin(true));
+                            toast.error("You are not logged in, Please login to continue",
                               {
                                 duration: 3000,
                                 style: {

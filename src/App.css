@@ -784,6 +784,11 @@ details[open] .downarrow {
   @apply lg:text-2xl text-lg;
 }
 
+
+#signup-form,.sell-cat,.rent-cat {
+  background: url(https://krishivikas.com/assets/images/sell-rent.jpg) center/cover no-repeat ;
+}
+
 /* `col-md-6` specific rules at medium breakpoints */
 @media (min-width: 768px) {
   .crop-info .col-md-6 {

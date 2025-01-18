@@ -101,8 +101,8 @@ const BottomHeadSection = () => {
           <Navbar />
           <div className="header__sell-rent-btn  gap-2 md:flex hidden">
             <AnimateButton>
-              <a
-                href="#"
+              <Link
+                to="/sell-post"
                 className="header__sell-btn uppercase border border-dashed rounded-3xl shadow-lg ps-1 pe-3 py-1 flex items-center text-white outline-none"
               >
                 <img
@@ -112,11 +112,11 @@ const BottomHeadSection = () => {
                   width={25}
                 />
                 {t('sell')}
-              </a>
+              </Link>
             </AnimateButton>
             <AnimateButton>
-              <a
-                href="#"
+              <Link
+                to="/rent-post"
                 className="header__sell-btn uppercase border border-dashed rounded-3xl shadow-lg pe-3 ps-1 py-1 flex items-center text-white outline-none"
               >
                 <img
@@ -126,7 +126,7 @@ const BottomHeadSection = () => {
                   width={25}
                 />
                 {t('rent')}
-              </a>
+              </Link>
             </AnimateButton>
           </div>
         </nav>

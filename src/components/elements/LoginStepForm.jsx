@@ -19,6 +19,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setLogInState, setToken, setUsers } from "../../redux/features/Auth/AuthSlice";
 import toastBg from "../../assets/images/toast-bg.jpg";
 import toastError from "../../assets/images/toastError.jpg";
+import { Link } from "react-router-dom";
 
 const LoginStepForm = () => {
 
@@ -253,6 +254,12 @@ const LoginStepForm = () => {
                     </div>
                 }
 
+
+
+            </div>
+            <div className="flex items-center justify-center my-5 gap-1">
+                <p>Don't have an account? </p>
+                <Link to="signup" className="text-darkGreen underline font-semibold">Sign Up</Link>
             </div>
         </>
     )

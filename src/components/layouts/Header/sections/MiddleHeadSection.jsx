@@ -46,7 +46,7 @@ const MiddleHeadSection = () => {
   const token = useSelector((state) => state.auth.token);
   const user = useSelector((state) => state.auth.user);
   const triggerLogin = useSelector((state) => state.auth.triggerLogin);
-  console.log(triggerLogin);
+  // console.log(triggerLogin);
 
 
 

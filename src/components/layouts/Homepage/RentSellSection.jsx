@@ -2,6 +2,7 @@ import sell_icon from "../../../assets/images/sell.svg";
 import rent_icon from "../../../assets/images/rent.svg";
 import rentSellBanner from "../../../assets/images/rent-sell-banner.jpg";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 const RentSellSection = () => {
   const { t } = useTranslation();
@@ -12,8 +13,8 @@ const RentSellSection = () => {
           {t('what would you like to do')}?
         </h2>
         <div className="rent-sell-btn flex justify-center gap-5">
-          <a
-            href="#"
+          <Link
+            to="/rent-post"
             className=" bg-lightgreen uppercase md:text-2xl text-white md:px-10 px-5 py-3 rounded-3xl border animate-pulse hover:animate-none"
           >
             <img
@@ -23,9 +24,9 @@ const RentSellSection = () => {
               width={25}
             />
             {t('rent')}
-          </a>
-          <a
-            href="#"
+          </Link>
+          <Link
+            to="/sell-post"
             className=" bg-lightgreen uppercase md:text-2xl text-white md:px-10 px-5 py-3 rounded-3xl border animate-pulse hover:animate-none shadow"
           >
             <img
@@ -35,7 +36,7 @@ const RentSellSection = () => {
               width={25}
             />
             {t('sell')}
-          </a>
+          </Link>
         </div>
       </section>
     </>

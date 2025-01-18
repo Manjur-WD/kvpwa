@@ -20,6 +20,9 @@ import CropContents from "./pages/crop-calender/CropContents";
 import AboutUs from "./pages/AboutUs";
 import BASE_URL from "../config";
 import ContactUs from "./pages/ContactUs";
+import SignUpModal from "./components/layouts/SignUpModal";
+import RentModal from "./components/layouts/RentModal";
+import SellModal from "./components/layouts/SellModal";
 
 
 // Lazy load components
@@ -48,7 +51,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   const authState = useSelector((state) => state.auth);
-  console.log(authState)
+  // console.log(authState)
 
   const secretKey = "kv-auth-token";
 
@@ -178,6 +181,9 @@ const App = () => {
             <Route path={`${baseUrl}/privacy-policy`} element={<PrivacyPolicy />} />
             <Route path={`${baseUrl}/terms-of-use`} element={<TermsOfUse />} />
             <Route path={`${baseUrl}/data-retention-policy`} element={<DataRetentionPolicy />} />
+            <Route path={`${baseUrl}/signup`} element={<SignUpModal />} />
+            <Route path={`${baseUrl}/rent-post`} element={<RentModal />} />
+            <Route path={`${baseUrl}/sell-post`} element={<SellModal />} />
           </Routes>
         </SortStatusProvider>
       </CompanyDataProvider>
